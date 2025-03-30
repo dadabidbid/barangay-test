@@ -62,7 +62,7 @@ function reqPage() {
     }
 
     axios
-      .post("http://localhost:5000/requests", requestData, {
+      .post("https://barangay-test.vercel.app/requests", requestData, {
         headers: { "Content-Type": "application/json" },
         timeout: 5000,
       })

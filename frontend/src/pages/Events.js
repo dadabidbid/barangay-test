@@ -57,15 +57,6 @@ const EventsContent = () => {
         <div className="embed-container">
           <h2>Barangay 58 Events</h2>
           <div className="events-content">
-            <iframe
-              src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fprofile.php%3Fid%3D61552676805291&tabs=timeline&width=500&height=350&small_header=true&adapt_container_width=true&hide_cover=true&show_facepile=false&appId"
-              width="500"
-              height="350"
-              style={{ border: "none", overflow: "hidden" }}
-              scrolling="no"
-              frameBorder="0"
-              allowFullScreen={true}
-            ></iframe>
           </div>
         </div>
 
