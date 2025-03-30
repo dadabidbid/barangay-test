@@ -12,7 +12,7 @@ const eventRoutes = require("./routes/eventRoutes.js");
 const app = express();
 
 const corsOptions = {
-  origin: "https://barangay-test-frontend.vercel.app/", 
+  origin: "https://barangay-test-frontend.vercel.app", 
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
   optionsSuccessStatus: 204,
@@ -31,7 +31,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/requests", require("./routes/requestRoutes"));
-app.use('/api', eventRoutes);
+app.use('/events', eventRoutes);
 
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
