@@ -7,7 +7,7 @@ require("dotenv").config();
 const { S3Client } = require("@aws-sdk/client-s3");
 const fs = require("fs");
 const path = require("path");
-const eventRoutes = require("../routes/eventRoutes");
+const eventRoutes = require("./routes/eventRoutes.js");
 
 const app = express();
 
@@ -30,22 +30,22 @@ app.use(cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.use("/requests", require("../routes/requestRoutes"));
+app.use("/requests", require("./routes/requestRoutes"));
 app.use("/events", eventRoutes);
 
 const pool = mysql.createPool({
   host: process.env.DB_HOST,
   user: process.env.DB_USER,
-  password: process.env.DB_PASS,
-  database: process.env.DB_NAME,
+  password: "ga94PAWrPQKmdb8VylSq",
+  database: "barangayDB",
   port: 3306,
   waitForConnections: true,
   connectionLimit: 10,
   queueLimit: 0,
   ssl: {
-    rejectUnauthorized: true,
-    ca: fs.readFileSync(path.join(__dirname, "../certs/global-bundle.pem")),
-  },
+      rejectUnauthorized: true,
+      ca: fs.readFileSync(__dirname + "/certs/global-bundle.pem")
+  }
 }).promise();
 
 (async () => {
